@@ -1,0 +1,359 @@
+// Bootstrap 5 互換性レイヤー
+// Bootstrap 3 の見た目を完全に再現するため、Bootstrap 5 のデフォルトスタイルを全面的にリセット
+
+// ================================================================================
+// Bootstrap 5 タイポグラフィシステムの完全リセット
+// ================================================================================
+// Bootstrap 5 は強力な typography システムを持っているが、カスタム CSS の rem ベース設計と競合する
+// すべてのタイポグラフィ関連のスタイルを無効化し、カスタム CSS を優先させる
+
+// Bootstrap 5 の root 変数をリセット
+:root {
+  --bs-body-font-family: inherit;
+  --bs-body-font-size: inherit;
+  --bs-body-font-weight: inherit;
+  --bs-body-line-height: inherit;
+  --bs-body-color: inherit;
+  --bs-body-bg: inherit;
+}
+
+// html 要素の font-size を明示的に設定（rem の基準）
+html {
+  font-size: 16px !important;
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px !important;
+  }
+}
+
+// body 要素の Bootstrap 5 スタイルを完全にリセット
+body {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  background-color: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-text-size-adjust: inherit !important;
+  -webkit-tap-highlight-color: inherit !important;
+}
+
+// すべての見出しの Bootstrap 5 スタイルをリセット
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+// 明示的に h1, h2 のフォントサイズを設定（rem ではなく px で）
+h1 {
+  font-size: 16px !important;
+}
+
+h2 {
+  font-size: 40px !important;
+}
+
+h2.ex-header {
+  font-size: 64px !important;
+  padding: 80px 0 50px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: bold !important;
+  margin-top: 0px !important;
+}
+
+h2.ex-header.event {
+  padding: 50px 0 30px !important;
+}
+
+h2.ex-header.time-table {
+  padding: 70px 0 10px !important;
+}
+
+h2.ex-header.access {
+  padding: 70px 0 50px !important;
+}
+
+h3 {
+  font-size: inherit !important;
+}
+
+// 段落要素のリセット
+p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+// リストのリセット
+ul, ol {
+  padding-left: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+// リンクスタイルのリセット
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+a:hover {
+  color: inherit !important;
+  text-decoration: underline !important;
+}
+
+// 画像のリセット
+img {
+  vertical-align: inherit !important;
+}
+
+// ================================================================================
+// Bootstrap 5 コンポーネントのリセット
+// ================================================================================
+
+// コンテナ: Bootstrap 3 の幅に設定
+.container {
+  width: auto !important;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+
+  @media (min-width: 768px) {
+    width: 750px !important;
+    max-width: 750px !important;
+  }
+  @media (min-width: 992px) {
+    width: 970px !important;
+    max-width: 970px !important;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px !important;
+    max-width: 1170px !important;
+  }
+}
+
+// テーブル: Bootstrap 3 のスタイルに完全リセット
+.table {
+  // Bootstrap 5 の CSS 変数を無効化
+  --bs-table-color: inherit !important;
+  --bs-table-bg: transparent !important;
+  --bs-table-border-color: #dddddd !important;
+  --bs-table-accent-bg: transparent !important;
+  --bs-table-striped-color: inherit !important;
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.05) !important;
+  --bs-table-active-color: inherit !important;
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1) !important;
+  --bs-table-hover-color: inherit !important;
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.075) !important;
+
+  // 基本スタイル
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-bottom: 20px !important;
+  background-color: transparent !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+
+  // Bootstrap 5 のデフォルトフォントサイズを無効化
+  font-size: inherit !important;
+  color: inherit !important;
+  vertical-align: inherit !important;
+
+  // セル内のスタイルリセット
+  > :not(caption) > * > * {
+    padding: 8px !important;
+    background-color: transparent !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: #dddddd !important;
+    box-shadow: none !important;
+    vertical-align: top !important;
+  }
+
+  // thead のスタイル
+  > thead > tr > th,
+  > thead > tr > td {
+    padding: 8px !important;
+    vertical-align: bottom !important;
+    border-bottom: 2px solid #dddddd !important;
+    border-top: 0 !important;
+  }
+
+  // tbody のスタイル
+  > tbody > tr > th,
+  > tbody > tr > td {
+    padding: 8px !important;
+    vertical-align: top !important;
+    border-top: 1px solid #dddddd !important;
+  }
+
+  // Bootstrap 5 の caption-top を無効化
+  > caption {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    color: #777777 !important;
+    text-align: left !important;
+    caption-side: top !important;
+  }
+
+  // ボーダー関連の完全リセット
+  border: none !important;
+  border-color: #dddddd !important;
+
+  // Bootstrap 5 の table-bordered を無効化
+  &.table-bordered {
+    border: 1px solid #dddddd !important;
+
+    > :not(caption) > * > * {
+      border-width: 1px !important;
+      border-color: #dddddd !important;
+    }
+  }
+}
+
+// ================================================================================
+// ユーティリティクラスのリセット
+// ================================================================================
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+// ================================================================================
+// カスタムコンポーネントの修正
+// ================================================================================
+
+// TIME TABLE などの見出しの改行を防ぐ
+// Bootstrap 5 の word-break や hyphens を無効化
+h2.ex-header,
+h2.ex-header.text-center,
+h2.ex-header.time-table,
+h2.ex-header.event,
+h2.ex-header.access,
+.container h2.ex-header,
+.container.time-table h2.ex-header.text-center.time-table {
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  width: auto !important;
+  flex: none !important;
+  display: block !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+  -moz-hyphens: none !important;
+}
+
+// コンテナ内の見出しの幅制約を解除
+.container.time-table,
+.container.event,
+.container.access {
+  overflow: visible !important;
+
+  > h2.ex-header {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+  }
+}
+
+// テーブル内のコンテンツの改行制御
+.time-table {
+  table {
+    // テーブルレイアウトを固定して幅を安定させる
+    table-layout: auto !important;
+    width: 100% !important;
+
+    td, th {
+      // セル内のテキストを適切に表示
+      white-space: normal !important;
+      overflow: visible !important;
+      word-wrap: normal !important;
+      word-break: normal !important;
+    }
+
+    // DJ名を太字で表示
+    td.dj {
+      strong {
+        font-weight: bold !important;
+      }
+
+      small {
+        font-size: 85% !important;
+        color: #888 !important;
+      }
+    }
+  }
+}
+
+// MEMBER セクションのボーダー色を維持
+.members {
+  .member {
+    // Bootstrap 5 の border リセットを上書きして元のボーダーを復元
+    border-color: #334952 !important;
+
+    .name {
+      border-bottom-color: #688e27 !important;
+    }
+  }
+}
+
+// ================================================================================
+// グリッドシステムの無効化
+// ================================================================================
+// このサイトは Bootstrap のグリッドを使用していないため、すべて無効化
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  display: block !important;
+}
+
+[class^="col-"],
+[class*=" col-"] {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  position: static !important;
+  float: none !important;
+  display: block !important;
+  width: auto !important;
+}
+
+// ================================================================================
+// Bootstrap 5 の不要なスタイルの削除
+// ================================================================================
+
+// box-sizing のリセット (Bootstrap 5 は border-box を強制する)
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+// スムーススクロールの無効化 (Bootstrap 5 のデフォルト)
+html {
+  scroll-behavior: auto !important;
+}

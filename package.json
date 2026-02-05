@@ -4,6 +4,8 @@
     "build": "sass source/stylesheets/all.css.scss .tmp/all.css"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "puppeteer": "^24.36.1",
     "sass": "^1.26.10"
   },
   "packageManager": "pnpm@10.11.1"

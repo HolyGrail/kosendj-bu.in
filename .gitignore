@@ -19,3 +19,8 @@
 .tmp
 
 node_modules
+
+# Playwright screenshots for testing
+screenshots/
+screenshot-member.js
+take-screenshots.js
